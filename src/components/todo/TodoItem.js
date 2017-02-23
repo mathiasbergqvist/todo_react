@@ -1,5 +1,5 @@
 import React from 'react';
-import {partial} from '../../utils/utils';
+import {partial} from '../../lib/utils';
 
 export const TodoItem = (props) => {
   // const handleToggle = () => props.handleToggle(props.id);
