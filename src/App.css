@@ -57,3 +57,8 @@ span.delete-item a {
 li:hover span.delete-item a {
   visibility: visible;
 }
+
+.footer a {
+  padding-left: 2px;
+  padding-right: 2px;
+}
