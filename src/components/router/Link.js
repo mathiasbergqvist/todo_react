@@ -2,14 +2,20 @@ import React, {Component} from 'react';
 
 export class Link extends Component {
 
+  static contextTypes = {
+    route: React.PropTypes.string,
+    linkHandler: React.PropTypes.func
+  };
+
   handleClick = (event) => {
     event.preventDefault();
-    history.pushState(null, '', this.props.to);
+    this.context.linkHandler(this.props.to)
   }
 
-  render(){
+  render() {
+    const activeClass = this.context.route === this.props.to ? 'active' : 'string';
     return(
-      <a href="#" onClick={this.handleClick}>{this.props.children}</a>
+      <a href="#" className={activeClass} onClick={this.handleClick}>{this.props.children}</a>
     );
   }
 }
