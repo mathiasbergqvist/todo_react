@@ -27,6 +27,13 @@ export class Router extends Component {
     }
   }
 
+  componentDidMount() {
+    //Triggers evry time that the back/forward buttons are pushed
+    window.onpopstate = () => {
+      this.setState({route: getCurrentPath()});
+    }
+  }
+
   render() {
     return(
       <div>{this.props.children}</div>
