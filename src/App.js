@@ -4,7 +4,7 @@ import './App.css';
 import {TodoForm, TodoList, Footer} from './components/todo';
 import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos} from './lib/todoHelpers';
 import {pipe, partial} from './lib/utils';
-import {loadTodos, createTodo, saveTodo} from './lib/todoService';
+import {loadTodos, createTodo, saveTodo, deleteTodo} from './lib/todoService';
 
 class App extends Component {
 
@@ -25,6 +25,8 @@ class App extends Component {
     event.preventDefault();
     const updatedTodos = removeTodo(this.state.todos, id);
     this.setState({todos: updatedTodos});
+    deleteTodo(id)
+      .then(() => this.showTempMessage('Todo removed'));
   }
 
   handleToggle = (id) => {
